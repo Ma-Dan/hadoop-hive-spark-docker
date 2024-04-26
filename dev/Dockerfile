@@ -51,6 +51,6 @@ RUN sudo pip install -U pip &&\
     pandas \
     openpyxl \
     findspark \
-    tensorflow-serving-api
+    tensorflow-serving-api -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 WORKDIR /home/$USERNAME

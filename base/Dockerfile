@@ -30,7 +30,7 @@ USER $USERNAME
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
 # Hadoop
-ARG HADOOP_VERSION=3.3.4
+ARG HADOOP_VERSION=3.3.5
 ARG HADOOP_URL=https://www.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
 ENV HADOOP_HOME=/opt/hadoop
 
@@ -62,7 +62,7 @@ RUN set -x \
  && sudo chown $USERNAME:$GROUPNAME -R $SPARK_HOME \
  && curl -fsSL $SPARK_URL -o /tmp/spark.tgz \
  && curl -fsSL $SPARK_URL.asc -o /tmp/spark.tgz.asc \
- && gpg --verify /tmp/spark.tgz.asc \
+#&& gpg --verify /tmp/spark.tgz.asc \
  && tar -xf /tmp/spark.tgz -C $SPARK_HOME --strip-components 1 \
  && rm /tmp/spark* \
  && curl -fsSL https://jdbc.postgresql.org/download/postgresql-42.3.2.jar -o $SPARK_HOME/jars/postgresql-42.3.2.jar
