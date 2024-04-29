@@ -20,7 +20,7 @@ services:
       - "history:172.28.1.5"
 
   master:
-    image: hadoop-hive-spark-master
+    image: hadoop-hive-spark-master:kyuubi-delta
     hostname: master
     depends_on:
       - metastore
@@ -35,6 +35,7 @@ services:
       - "8088:8088"
       - "9870:9870"
       - "10000:10000"
+      - "10009:10009"
     volumes:
       - namenode:/opt/hadoop/dfs/name
     restart: always
